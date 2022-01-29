@@ -1,0 +1,89 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name" : "RISC V Debug",
+            "type" : "cppdbg",
+            "targetArchitecture": "arm64",
+            "request": "launch",
+            "program" : "./build/GD32VF103XX_SPL.elf",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd" : "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "customLaunchSetupCommands": [
+                {
+                    "description": "Set filename for gdb",
+                    "text": "file ${workspaceFolder}/build/GD32VF103XX_SPL.elf",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Enable extended-remote for gdb",
+                    "text": "target extended-remote localhost:3333",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Load executable",
+                    "text": "load",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Ensure target is halted",
+//                    "text": "monitor halt reset",
+                    "text": "monitor reset",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },               
+            ],
+
+            "miDebuggerPath": "/Users/jgiles/tools/riscv_nuclei/bin/riscv-nuclei-elf-gdb",
+            "miDebuggerServerAddress": "localhost:3333",
+            "svdPath": "svd/GD32VF103.svd"
+        },
+
+        // {
+        //     "cwd": "${workspaceRoot}",
+        //     "executable": "./build/GD32VF103XX_SPL.elf",
+        //     "name": "Debug Microcontroller",
+        //     "request": "launch",
+        //     "type": "cortex-debug",
+        //     "interface": "swd",
+        //     "runToMain": false,
+        //     "svdFile": "svd/GD32VF103.svd",
+        //     "servertype": "openocd",
+        //     "configFiles": [
+        //         "/Users/jgiles/Downloads/openocd_gdlink.cfg"
+        //     ],
+        //     "serverpath": "/Users/jgiles/tools/openocd-gd/bin/openocd",
+        //     "gdbPath": "/Users/jgiles/tools/riscv_nuclei/bin/riscv-nuclei-elf-gdb"
+        //     //"servertype": "jlink",
+        //     //"device" : "GD32VF103CB",
+        //     // "servertype": "external",
+        //     // "gdbTarget": ":3333",
+        //     // "servertype": "bmp",
+        //     // "BMPGDBSerialPort": "/dev/cu.usbmodemSNC6BDF5D31",
+        //     // "servertype": "openocd",
+        //     // "configFiles": [
+        //     //     "interface/cmsis-dap.cfg",
+        //     //     "target/lpc8xx-jg.cfg"
+        //     // ],
+        //     // "postDebugTask": "Reset"
+        // },
+     ]
+}

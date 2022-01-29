@@ -1,0 +1,5 @@
+{
+    "git.ignoreLimitWarning": true,
+    "cortex-debug.armToolchainPath": "/Users/jgiles/tools/riscv32imac/bin/",
+    "cortex-debug.armToolchainPrefix": "riscv32-unknown-elf"
+}

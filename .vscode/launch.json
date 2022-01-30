@@ -9,7 +9,7 @@
             "type" : "cppdbg",
             "targetArchitecture": "arm64",
             "request": "launch",
-            "program" : "./build/GD32VF103XX_SPL.elf",
+            "program" : "./.build/GD32VF103C_START_RTTHREAD_MK.elf",
             "args": [],
             "stopAtEntry": false,
             "cwd" : "${workspaceFolder}",
@@ -25,8 +25,13 @@
             ],
             "customLaunchSetupCommands": [
                 {
+                    "description": "Force target architecture to rv32",
+                    "text": "set arch riscv:rv32",
+                    "ignoreFailures": false
+                },
+                {
                     "description": "Set filename for gdb",
-                    "text": "file ${workspaceFolder}/build/GD32VF103XX_SPL.elf",
+                    "text": "file ${workspaceFolder}/.build/GD32VF103C_START_RTTHREAD_MK.elf",
                     "ignoreFailures": true
                 },
                 {

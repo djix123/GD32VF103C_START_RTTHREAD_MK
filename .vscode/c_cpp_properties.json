@@ -5,10 +5,14 @@
             "includePath": [
                 "${workspaceFolder}/src",
                 "${workspaceFolder}/inc",
-                "${workspaceFolder}/drivers/GD32VF103_standard_peripheral/",
-                "${workspaceFolder}/drivers/GD32VF103_standard_peripheral//Include",
+                "${workspaceFolder}/drivers/GD32VF103_standard_peripheral",
+                "${workspaceFolder}/drivers/GD32VF103_standard_peripheral/Include",
                 "${workspaceFolder}/drivers/RISCV/drivers",
-                "${workspaceFolder}/drivers/RISCV/stubs"
+                "${workspaceFolder}/drivers/RISCV/stubs",
+                "${workspaceFolder}/rt-thread/include",
+                "${workspaceFolder}/rt-thread/include/libc",
+                "${workspaceFolder}/rt-thread/libcpu/risc-v/common",
+                "${workspaceFolder}/rt-thread"
             ],
             "defines": [
                 "USE_STDPERIPH_DRIVER",

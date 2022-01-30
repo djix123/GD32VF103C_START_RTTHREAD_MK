@@ -1,5 +1,10 @@
 {
     "git.ignoreLimitWarning": true,
     "cortex-debug.armToolchainPath": "/Users/jgiles/tools/riscv32imac/bin/",
-    "cortex-debug.armToolchainPrefix": "riscv32-unknown-elf"
+    "cortex-debug.armToolchainPrefix": "riscv32-unknown-elf",
+    "files.associations": {
+        "riscv_encoding.h": "c",
+        "rthw.h": "c",
+        "n200_timer.h": "c"
+    }
 }

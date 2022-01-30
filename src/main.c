@@ -33,7 +33,8 @@ OF SUCH DAMAGE.
 */
 
 #include "gd32vf103.h"
-#include <stdio.h>
+#include "rtconfig.h"
+#include "rtthread.h"
 
 //#define __GD32VF103C_START__
 //#define __SIPEED_LONGAN_NANO__
@@ -55,9 +56,10 @@ OF SUCH DAMAGE.
 
 
 
-void delay_1ms(uint32_t count);
+// void delay_1ms(uint32_t count);
 void led_on(void);
 void led_off(void);
+void thread1_entry(void *parameter);
 
 void led_init()
 {
@@ -94,36 +96,37 @@ void led_on()
 */
 int main(void)
 {
+    rt_thread_t tid;
+
     led_init();
+
+    // when setting thread1 priority set less than main thread priority *or*
+    // add rt_thread_mdelay to yield to thread1
+    // main thread priority = RT_THREAD_PRIORITY_MAX / 3 (see components.c)
+    tid = rt_thread_create("thread1", thread1_entry, RT_NULL,
+                           RT_MAIN_THREAD_STACK_SIZE, RT_THREAD_PRIORITY_MAX / 4, 20);
+    RT_ASSERT(tid != RT_NULL);
+
+    rt_thread_startup(tid);
 
     while(1)
     {
-        /* turn on builtin led */
-        led_on();
-        delay_1ms(50);
-        /* turn off uiltin led */
-        led_off();
-        delay_1ms(500);
+        // if main thread priority < thread1 priority
+        // need to add delay so thread1 gets scheduled
+        //rt_thread_mdelay(1);
     }
 }
 
 
-void delay_1ms(uint32_t count)
+void thread1_entry(void *parameter)
 {
-    uint64_t start_mtime, delta_mtime;
-    uint64_t scaled_count = (SystemCoreClock / 4000) * count;
-
-    // Don't start measuruing until we see an mtime tick
-    uint64_t tmp = get_timer_value();
-    do
+    while(1)
     {
-        start_mtime = get_timer_value();
+        /* turn on builtin led */
+        led_on();
+        rt_thread_mdelay(10);
+        /* turn off uiltin led */
+        led_off();
+        rt_thread_mdelay(500);
     }
-    while (start_mtime == tmp);
-
-    do
-    {
-        delta_mtime = get_timer_value() - start_mtime;
-    }
-    while(delta_mtime < scaled_count);
 }

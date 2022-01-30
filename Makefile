@@ -36,47 +36,67 @@ BUILD_DIR = .build
 ######################################
 # C sources
 C_SOURCES =  \
-src/main.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_adc.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_bkp.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_can.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_crc.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_dac.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_dbg.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_dma.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_eclic.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_exti.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_fmc.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_fwdgt.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_gpio.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_i2c.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_pmu.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_rcu.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_rtc.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_spi.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_timer.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_usart.c \
-drivers/GD32VF103_standard_peripheral/Source/gd32vf103_wwdgt.c \
-drivers/GD32VF103_standard_peripheral/system_gd32vf103.c \
-drivers/RISCV/drivers/n200_func.c \
-drivers/RISCV/env_Eclipse/handlers.c \
-drivers/RISCV/env_Eclipse/init.c \
-drivers/RISCV/env_Eclipse/your_printf.c \
-drivers/RISCV/stubs/_exit.c \
-drivers/RISCV/stubs/close.c \
-drivers/RISCV/stubs/fstat.c \
-drivers/RISCV/stubs/isatty.c \
-drivers/RISCV/stubs/lseek.c \
-drivers/RISCV/stubs/read.c \
-drivers/RISCV/stubs/sbrk.c \
-drivers/RISCV/stubs/write_hex.c \
-drivers/RISCV/stubs/write.c
+ .//drivers/RISCV/stubs/fstat.c \
+ .//drivers/RISCV/stubs/read.c \
+ .//drivers/RISCV/stubs/write_hex.c \
+ .//drivers/RISCV/stubs/_exit.c \
+ .//drivers/RISCV/stubs/lseek.c \
+ .//drivers/RISCV/stubs/isatty.c \
+ .//drivers/RISCV/stubs/sbrk.c \
+ .//drivers/RISCV/stubs/write.c \
+ .//drivers/RISCV/stubs/close.c \
+ .//drivers/RISCV/drivers/n200_func.c \
+ .//drivers/RISCV/env_Eclipse/your_printf.c \
+ .//drivers/RISCV/env_Eclipse/init.c \
+ .//drivers/RISCV/env_Eclipse/handlers.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_dac.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_fwdgt.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_dma.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_eclic.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_adc.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_crc.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_exti.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_timer.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_exmc.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_can.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_bkp.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_fmc.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_pmu.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_spi.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_rtc.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_usart.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_wwdgt.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_i2c.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_gpio.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_rcu.c \
+ .//drivers/GD32VF103_standard_peripheral/Source/gd32vf103_dbg.c \
+ .//drivers/GD32VF103_standard_peripheral/system_gd32vf103.c \
+ .//rt-thread/board.c \
+ .//rt-thread/libcpu/risc-v/common/cpuport.c \
+ .//rt-thread/src/thread.c \
+ .//rt-thread/src/components.c \
+ .//rt-thread/src/slab.c \
+ .//rt-thread/src/timer.c \
+ .//rt-thread/src/object.c \
+ .//rt-thread/src/irq.c \
+ .//rt-thread/src/cpu.c \
+ .//rt-thread/src/kservice.c \
+ .//rt-thread/src/mem.c \
+ .//rt-thread/src/mempool.c \
+ .//rt-thread/src/clock.c \
+ .//rt-thread/src/memheap.c \
+ .//rt-thread/src/ipc.c \
+ .//rt-thread/src/scheduler.c \
+ .//rt-thread/src/idle.c \
+ .//src/main.c
 
-
+ 
 # ASM sources
 ASM_SOURCES =  \
 drivers/RISCV/env_Eclipse/entry.S \
-drivers/RISCV/env_Eclipse/start.S
+drivers/RISCV/env_Eclipse/start.S \
+rt-thread/libcpu/risc-v/bumblebee/interrupt_gcc.S \
+rt-thread/libcpu/risc-v/common/context_gcc.S
 
 #######################################
 # binaries
@@ -134,8 +154,11 @@ C_INCLUDES =  \
 -Idrivers/GD32VF103_standard_peripheral/ \
 -Idrivers/GD32VF103_standard_peripheral/Include \
 -Idrivers/RISCV/drivers \
--Idrivers/RISCV/stubs
-
+-Idrivers/RISCV/stubs \
+-Irt-thread/include \
+-Irt-thread/include/libc \
+-Irt-thread/libcpu/risc-v/common \
+-Irt-thread
 
 
 # compile gcc flags
